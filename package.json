@@ -1,0 +1,35 @@
+{
+  "name": "thepoet",
+  "version": "1.0.0",
+  "description": "Multi-Agent AI Orchestration System for Autonomous Business Logic",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest",
+    "lint": "eslint src/",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "orchestration",
+    "llm",
+    "gpt",
+    "claude",
+    "multi-agent",
+    "automation"
+  ],
+  "author": "Luke Okagha <info@lukeokagha.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tricodenetwork/ThePoet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tricodenetwork/ThePoet/issues"
+  },
+  "homepage": "https://github.com/tricodenetwork/ThePoet#readme"
+}
