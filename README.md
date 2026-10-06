@@ -1,79 +1,130 @@
 # ThePoet
 
-**Multi-agent AI orchestration experiment**
+**Multi-agent AI orchestration experiment for coordinating specialized agents around business and technical workflows.**
 
-ThePoet explores a multi-agent architecture in TypeScript for coordinating specialized AI agents around business and technical workflows.
+TypeScript-based prototype exploring task routing, agent specialization, shared context, structured outputs, and multi-provider LLM integration.
 
-## What it demonstrates
+> **Status honesty:** Experimental / portfolio project. Previous production-scale, latency, and concurrency claims are not used here. Source code is the authority for implementation status.
 
-- Agent specialization
-- Task routing
-- Context sharing
+## Problem
+
+Complex work often needs multiple specialized perspectives (technical, operational, legal, product). Orchestrating several LLM-backed agents with clear routing, shared context, and failure isolation is harder than a single chat completion — and easy to over-claim.
+
+## Solution
+
+ThePoet explores:
+
+- Specialized agent roles
+- Task routing into workflows
+- Context / memory sharing concepts
 - Structured outputs
-- Multi-agent workflow design
-- LLM provider integration
-- Redis/PostgreSQL-backed memory concepts
-- GitHub integration concepts
-- CLI/API interfaces
+- Multi-provider LLM abstraction (OpenAI, Anthropic, Ollama concepts)
+- CLI and API entry points
 
-The repository documentation describes specialized roles such as CEO, CTO, CFO, CMO, legal/compliance, operations, and Web3 agents.
+A stronger, accurate description: *a multi-agent orchestration prototype exploring task routing, specialized agents, shared context, and model-provider abstraction.*
 
 ## Architecture
 
 ```
 User / CLI / API
-       |
+       │
    Task Router
-       |
-   Agent Workflow
-       |
+       │
+  Agent Workflow
+       │
 Specialized Agents
-       |
-LLM Provider(s)
-       |
-Context / Memory
+       │
+ LLM Provider(s)
+       │
+ Context / Memory
 ```
 
-## Technology referenced
+Documented role ideas have included executive/functional agents (e.g. technical, operations, compliance). Treat roles as design, not proof of production autonomy.
 
-- Node.js
-- TypeScript
-- OpenAI models
-- Anthropic models
-- Ollama
-- Redis
-- PostgreSQL
-- REST API
-- Telegram integration
-- GitHub integration
+## Features
 
-## Important scope note
+- Agent specialization and task routing concepts
+- Multi-agent workflow design
+- LLM provider integration patterns
+- Context / memory concepts (Redis / PostgreSQL referenced)
+- CLI and REST-oriented interfaces
+- Structured output handling
 
-The previous README used terms such as "production-ready", specific latency numbers, concurrency figures, token capacity, and business-scale examples without providing corresponding benchmark evidence.
+## Tech stack
 
-Those claims should not be used in a CV or interview unless reproducible measurements are added to the repository.
+| Area | Technology |
+|------|------------|
+| Language | TypeScript |
+| Runtime | Node.js |
+| Models | OpenAI, Anthropic, Ollama (as referenced) |
+| Data concepts | Redis, PostgreSQL |
+| Interfaces | REST API, CLI; Telegram / GitHub integration concepts |
 
-A stronger technical presentation is:
+## Repository structure
 
-> "A multi-agent orchestration prototype exploring task routing, specialized agents, shared context and model-provider abstraction."
+Inspect the repository tree for agents, router, providers, and API/CLI entrypoints. Prefer code over this summary when details differ.
 
-## Interview discussion areas
+## Installation
 
-Be ready to explain:
+```bash
+git clone https://github.com/lukewealth/ThePoet.git
+cd ThePoet
+npm install   # or the package manager indicated by lockfiles
+cp .env.example .env   # if present
+```
 
-- how tasks are routed
-- how agent state is represented
-- how context is shared
-- how failures are handled
-- how model/provider failures are isolated
-- how retries and idempotency would work
-- how agent behavior would be evaluated
-- how secrets and tool permissions would be controlled
+## Environment variables
+
+Typical needs (confirm against `.env.example` if present):
+
+- LLM provider API keys
+- Optional Redis / PostgreSQL connection strings
+- Any integration tokens (GitHub, Telegram, etc.)
+
+Never commit real secrets.
+
+## Usage
+
+Use the project’s documented scripts for CLI or API. Prefer non-production keys and explicit tool permissions when experimenting with agents that call external systems.
+
+## Testing
+
+Check the repo for test suites. If minimal, verification is primarily manual and type-level until tests are expanded.
+
+## Deployment
+
+Not presented as a production SaaS. Suitable for local demos and architecture discussion.
+
+## Security
+
+- Secrets via environment only
+- Isolate provider failures; avoid cascading agent errors
+- Constrain tool permissions and outbound actions
+- Consider prompt-injection and untrusted content in agent inputs
+
+## Limitations
+
+- Prototype / experimental scope
+- No verified production SLAs, token capacity claims, or business-scale metrics in this README
+- Memory and integration depth must be verified in code
+- Not a compliance-certified system
+
+## Current status
+
+**Experimental / portfolio project.**  
+Useful interview discussion areas: task routing, agent state, context sharing, failure isolation, retries/idempotency, evaluation, and secret/tool permission design.
+
+## Roadmap
+
+- Stronger evaluation harness for agent behaviour
+- Clearer implemented-vs-design documentation
+- Hardened tool allow-lists and audit logging
+- Automated tests for router and agent contracts
 
 ## Keywords
 
-AI Systems Engineer, Agentic AI, Multi-Agent Systems, LLM Orchestration, TypeScript, Node.js, OpenAI, Anthropic, Ollama, Redis, PostgreSQL, Task Routing, AI Automation.
+`ai` `artificial-intelligence` `agentic-ai` `ai-agents` `llm` `typescript` `nodejs` `backend` `api` `automation` `software-architecture` `multi-agent` `orchestration`
 
-## Status
+## License
 
-Experimental / portfolio project. Current source code is the authority for implementation status.
+See repository license file if present; otherwise all rights reserved by the author.
